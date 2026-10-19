@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reguly - Tax Compliance Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { max-width: 500px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 15px; background-color: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; }
+        button:hover { background-color: #2ecc71; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reguly Compliance Predictor</h2>
+        <p>Predict the probability that a business account will remain tax-compliant (avoiding fines/audits from the Spanish Tax Agency).</p>
+        
+        <!-- The form sends a GET request to the /predict API endpoint -->
+        <form action="/predict" method="get">
+            <label for="late_filings_count">Late Filings Count (Last 12 Months):</label>
+            <input type="number" id="late_filings_count" name="late_filings_count" required placeholder="e.g., 0">
+
+            <label for="annual_gross_revenue">Annual Gross Revenue (€):</label>
+            <input type="number" step="any" id="annual_gross_revenue" name="annual_gross_revenue" required placeholder="e.g., 150000">
+
+            <label for="unpaid_taxes">Unpaid Taxes/Arrears (€):</label>
+            <input type="number" step="any" id="unpaid_taxes" name="unpaid_taxes" required placeholder="e.g., 5000">
+
+            <button type="submit">Get Prediction</button>
+        </form>
+    </div>
+</body>
+</html>
